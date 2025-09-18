@@ -1,0 +1,15 @@
+[Unit]
+Description=Torrust Tracker
+After=network.target
+
+[Service]
+Type=simple
+User=kieranmenadue
+WorkingDirectory=/Users/kieranmenadue/Downloads/MacTracker/torrust-tracker
+ExecStart=/Users/kieranmenadue/Downloads/MacTracker/torrust-tracker/target/release/torrust-tracker
+Environment=TORRUST_TRACKER_CONFIG_TOML_PATH=/Users/kieranmenadue/Downloads/MacTracker/storage/tracker/etc/tracker.toml
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

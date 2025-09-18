@@ -1,0 +1,42 @@
+# Build artifacts
+target/
+dist/
+.nuxt/
+.output/
+
+# Dependencies
+node_modules/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+
+# Secrets
+storage/*/lib/*.secret
+*.secret
+
+# PID files
+*.pid

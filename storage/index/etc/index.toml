@@ -1,0 +1,31 @@
+[metadata]
+app = "torrust-index"
+purpose = "configuration"
+schema_version = "2.0.0"
+
+[website.demo]
+
+[logging]
+#threshold = "off"
+#threshold = "error"
+#threshold = "warn"
+threshold = "info"
+#threshold = "debug"
+#threshold = "trace"
+
+[tracker]
+token = "azZwiPBbTdnPjyFK5LRcPgHFI"
+
+[database]
+connect_url = "sqlite:///Users/kieranmenadue/Downloads/MacTracker/storage/index/lib/database/sqlite3.db"
+
+[auth]
+user_claim_token_pepper = "1zsFnrCBdR8JSfBOF8yZ5Mpmn"
+
+# Uncomment if you want to enable TSL for development
+#[net.tsl]
+#ssl_cert_path = "./storage/index/lib/tls/localhost.crt"
+#ssl_key_path = "./storage/index/lib/tls/localhost.key"
+
+[registration]
+[registration.email]

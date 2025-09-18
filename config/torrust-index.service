@@ -1,0 +1,15 @@
+[Unit]
+Description=Torrust Index
+After=network.target
+
+[Service]
+Type=simple
+User=kieranmenadue
+WorkingDirectory=/Users/kieranmenadue/Downloads/MacTracker/torrust-index
+ExecStart=/Users/kieranmenadue/Downloads/MacTracker/torrust-index/target/release/torrust-index
+Environment=TORRUST_INDEX_CONFIG_TOML_PATH=/Users/kieranmenadue/Downloads/MacTracker/storage/index/etc/index.toml
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
