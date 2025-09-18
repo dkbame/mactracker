@@ -1,0 +1,51 @@
+services:
+  tracker:
+    image: torrust/tracker:develop
+    container_name: torrust-tracker
+    ports:
+      - "1212:1212"
+      - "6969:6969/udp"
+      - "7070:7070"
+    volumes:
+      - ./storage/tracker:/var/lib/torrust/tracker
+      - ./config/tracker.toml:/etc/torrust/tracker.toml:ro
+    environment:
+      - TORRUST_TRACKER_CONFIG_TOML_PATH=/etc/torrust/tracker.toml
+    restart: unless-stopped
+    networks:
+      - torrust
+
+  index:
+    image: torrust/index:develop
+    container_name: torrust-index
+    ports:
+      - "3001:3001"
+      - "3002:3002"
+    volumes:
+      - ./storage/index:/var/lib/torrust/index
+      - ./config/index.toml:/etc/torrust/index.toml:ro
+    environment:
+      - TORRUST_INDEX_CONFIG_TOML_PATH=/etc/torrust/index.toml
+      - TORRUST_INDEX_API_CORS_PERMISSIVE=1
+    depends_on:
+      - tracker
+    restart: unless-stopped
+    networks:
+      - torrust
+
+  gui:
+    image: torrust/index-gui:develop
+    container_name: torrust-gui
+    ports:
+      - "3000:3000"
+    environment:
+      - NUXT_PUBLIC_API_BASE=https://macosapps.net:3001/v1
+    depends_on:
+      - index
+    restart: unless-stopped
+    networks:
+      - torrust
+
+networks:
+  torrust:
+    driver: bridge
