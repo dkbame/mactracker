@@ -1,0 +1,42 @@
+# Production Configuration Template
+# Copy this file to storage/tracker/etc/tracker.toml and storage/index/etc/index.toml
+# and customize for your production environment
+
+[metadata]
+app = "torrust-tracker"
+purpose = "configuration"
+schema_version = "2.0.0"
+
+[logging]
+threshold = "info"
+
+[core]
+inactive_peer_cleanup_interval = 120
+listed = false
+private = false
+
+[core.database]
+driver = "sqlite3"
+path = "/var/lib/torrust/tracker/database/sqlite3.db"
+
+[core.tracker_policy]
+max_peer_timeout = 60
+persistent_torrent_completed_stat = true
+remove_peerless_torrents = true
+
+[[udp_trackers]]
+bind_address = "0.0.0.0:6969"
+tracker_usage_statistics = true
+
+[[http_trackers]]
+bind_address = "0.0.0.0:7070"
+tracker_usage_statistics = true
+
+[http_api]
+bind_address = "0.0.0.0:1212"
+
+[http_api.access_tokens]
+admin = "CHANGE_THIS_SECRET_TOKEN"
+
+[health_check_api]
+bind_address = "127.0.0.1:1313"
