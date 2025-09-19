@@ -61,7 +61,7 @@ public_address = "https://$DOMAIN:3001"
 [tracker]
 api_url = "http://tracker:1212"
 token = "$(cat ./secrets/tracker_admin_token.secret 2>/dev/null || echo 'MyAccessToken')"
-url = "udp://$DOMAIN:6969"
+url = "udp://$DOMAIN:6969/announce"
 
 [database]
 connect_url = "sqlite:///var/lib/torrust/index/database/sqlite3.db"
@@ -105,11 +105,11 @@ fi
 
 # 5. Show the fix
 print_status "5. Configuration updated:"
-print_status "Tracker URL in index config: udp://$DOMAIN:6969"
+print_status "Tracker URL in index config: udp://$DOMAIN:6969/announce"
 print_status ""
 print_status "New torrent uploads will now use:"
-print_success "  udp://$DOMAIN:6969"
-print_success "  http://$DOMAIN:7070"
+print_success "  udp://$DOMAIN:6969/announce"
+print_success "  http://$DOMAIN:7070/announce"
 print_status ""
 print_warning "Note: Existing torrents will still show localhost URLs."
 print_status "Only new uploads will use the correct domain URLs."
@@ -129,4 +129,4 @@ print_status ""
 print_status "To test the fix:"
 print_status "1. Upload a new torrent"
 print_status "2. Check the torrent details page"
-print_status "3. Verify the tracker URL shows: udp://$DOMAIN:6969"
+print_status "3. Verify the tracker URL shows: udp://$DOMAIN:6969/announce"
