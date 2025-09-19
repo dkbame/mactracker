@@ -1,0 +1,26 @@
+--- a/pages/upload.vue
++++ b/pages/upload.vue
+@@ -67,6 +67,19 @@
+         <UploadFile sub-title="Only .torrent files allowed. BitTorrent v2 files are NOT supported." accept=".torrent" @on-change="setFile" />
+       </div>
+ 
++      <!-- Tracker URLs Information -->
++      <div class="p-4 bg-base-200/50 rounded-2xl border border-base-content/10">
++        <h3 class="text-lg font-semibold text-neutral-content mb-3">Tracker URLs</h3>
++        <p class="text-sm text-neutral-content/70 mb-3">Your torrent will use these tracker URLs:</p>
++        <div class="space-y-2">
++          <div class="flex items-center gap-3">
++            <span class="text-xs font-medium text-primary uppercase tracking-wide">UDP:</span>
++            <code class="flex-1 p-2 bg-base-100 rounded-lg text-sm font-mono text-neutral-content border border-base-content/20">udp://macosapps.net:6969/announce</code>
++          </div>
++          <div class="flex items-center gap-3">
++            <span class="text-xs font-medium text-secondary uppercase tracking-wide">HTTP:</span>
++            <code class="flex-1 p-2 bg-base-100 rounded-lg text-sm font-mono text-neutral-content border border-base-content/20">http://macosapps.net:7070/announce</code>
++          </div>
++        </div>
++        <p class="text-xs text-neutral-content/50 mt-2">These URLs will be embedded in your torrent file for peer discovery.</p>
++      </div>
++
+       <!-- Checkbox for Terms and Conditions Agreement -->
+       <div>
+         <label for="agree-to-terms" class="px-2">Agreement</label>
