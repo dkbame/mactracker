@@ -37,6 +37,7 @@ Thumbs.db
 # Secrets
 storage/*/lib/*.secret
 *.secret
+secrets/
 
 # PID files
 *.pid
